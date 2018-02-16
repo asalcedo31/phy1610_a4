@@ -13,3 +13,5 @@ solver: solver.o
 solver.o: solver.cc
 	${CXX} ${CXXFLAGS} ${BOOST_FLAG} ${BOOST_LIB} solver.cc -c -o solver.o
 
+clean:
+	rm -f solver  *.o *.out

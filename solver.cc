@@ -44,6 +44,8 @@ void ball_on_oscillator( const state_type &x , state_type &dpdt , const double  
 
 }
 
+void write_cout(const state_type &x, const double t)
+{ std::cout << t << '\t' << x[0] << '\t' << x[1] << '\t' << x[2] << '\t' << x[3] << '\t' << x[4] << '\t' << x[5] << std::endl; }
 
 
 int main(){
@@ -58,7 +60,7 @@ int main(){
 	x[5] = 0.0; //value for w
 
 	size_t steps = boost::numeric::odeint::integrate( ball_on_oscillator ,
-        x , 0.0 , 10.0 , 0.1 );
+        x , 0.0 , 10.0 , 0.1 , write_cout);
 
 	std::cout << steps << std::endl;
 	return 0;
